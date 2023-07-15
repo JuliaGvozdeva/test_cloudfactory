@@ -1,5 +1,7 @@
+import { AxiosResponse } from 'axios';
+
 export type TExchangeService = {
-  getExchangeData: () => Promise<TExchangeData>;
+  getExchangeData: () => Promise<AxiosResponse<TExchangeData>>;
 };
 
 export type TExchangeData = {

@@ -8,11 +8,7 @@ const AppStack = createNativeStackNavigator<TAppNavigator>();
 
 const AppNavigator: React.FC = () => (
   <AppStack.Navigator>
-    <AppStack.Screen
-      options={{ headerShown: false }}
-      name={ERoutes.appTabs}
-      component={AppTabsNavigator}
-    />
+    <AppStack.Screen options={{ headerShown: false }} name={ERoutes.appTabs} component={AppTabsNavigator} />
   </AppStack.Navigator>
 );
 
