@@ -1,4 +1,4 @@
-import { TAppTabsNavigator } from '../AppTabsNavigator/types';
+import { TAppTabsNavigator } from '../AppTabsNavigator';
 import { ERoutes } from '../routes';
 
 export type TAppNavigator = {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ERoutes } from '../routes';
 import AppTabsNavigator from '../AppTabsNavigator';
@@ -16,3 +17,4 @@ const AppNavigator: React.FC = () => (
 );
 
 export default AppNavigator;
+export * from './types';

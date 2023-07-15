@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 
 const About: React.FC = () => (
   <>
-    <Text>{'About'}</Text>
+    <Text>{'Description will be here'}</Text>
   </>
 );
 
