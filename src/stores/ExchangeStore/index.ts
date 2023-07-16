@@ -1,7 +1,6 @@
 import { makeAutoObservable } from 'mobx';
-import LoadingStateModel from '../../models/LoadingStateModel';
+import LoadingStateModel, { TError } from '../../models/LoadingStateModel';
 import { ExchangeService, TExchangeData } from '../../services/ExchangeService';
-import { AxiosError } from 'axios';
 import { TExchangeItem } from './types';
 
 class ExchangeStoreClass {
@@ -31,14 +30,7 @@ class ExchangeStoreClass {
       this.exchangeData.setData(data);
     } catch (error) {
       console.log(error);
-      if (error instanceof AxiosError) {
-        const backendError = error?.response?.data?.error;
-
-        if (backendError) {
-          this.exchangeData.setError(backendError);
-          return;
-        }
-      }
+      this.exchangeData.setError({ title: 'Error' } as TError);
     } finally {
       this.exchangeData.setLoading(false);
     }

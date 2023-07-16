@@ -19,6 +19,9 @@ class LoadingStateModel<T> {
   };
 
   public setLoading = (isLoading: boolean) => {
+    if (isLoading) {
+      this.clearError();
+    }
     this.isLoading = isLoading;
   };
 

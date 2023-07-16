@@ -3,12 +3,12 @@ import { ListRenderItem } from 'react-native';
 import { ExchangeStore } from '../../../../stores';
 import Row from './components/Row';
 import { TExchangeItem } from 'stores/ExchangeStore';
-import { FlatListComponent } from './styled';
+import { Container, ErrorContainer, FlatListComponent, Placeholder } from './styled';
 import { observer } from 'mobx-react';
 import { useFocusEffect } from '@react-navigation/native';
 
 const Table: React.FC = () => {
-  const { getExchangeData, exchangeDataArray } = ExchangeStore;
+  const { getExchangeData, exchangeDataArray, exchangeData } = ExchangeStore;
 
   const init = () => {
     getExchangeData();
@@ -29,7 +29,28 @@ const Table: React.FC = () => {
     <Row isFirstRow={!index} isLastRow={index === exchangeDataArray.length - 1} item={item} />
   );
 
-  return <FlatListComponent data={exchangeDataArray} renderItem={renderItem} keyExtractor={(item) => `${item.id}`} />;
+  const renderHeader = () =>
+    exchangeData?.error?.title ? (
+      <ErrorContainer>
+        <Placeholder color={'red'}>{exchangeData.error.title}</Placeholder>
+      </ErrorContainer>
+    ) : null;
+
+  const renderPlaceholder = () => (
+    <Container>
+      <Placeholder>{'No items yet'}</Placeholder>
+    </Container>
+  );
+
+  return (
+    <FlatListComponent
+      data={exchangeDataArray}
+      keyExtractor={(item) => `${item.id}`}
+      renderItem={renderItem}
+      ListHeaderComponent={renderHeader}
+      ListEmptyComponent={renderPlaceholder}
+    />
+  );
 };
 
 export default observer(Table);
