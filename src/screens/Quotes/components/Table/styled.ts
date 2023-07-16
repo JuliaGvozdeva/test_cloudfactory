@@ -6,13 +6,9 @@ type TColor = {
   color?: string;
 };
 
-export const FlatListComponent = styled(FlatList<TExchangeItem>).attrs(() => ({
-  contentContainerStyle: {
-    flex: 1,
-    padding: '2%',
-  },
-}))`
+export const FlatListComponent = styled(FlatList<TExchangeItem>)`
   flex: 1;
+  padding: 2%;
 `;
 
 export const Container = styled.View`
