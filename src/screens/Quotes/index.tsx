@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
-import { ActivityIndicator, Text } from 'react-native';
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { ExchangeStore } from '../../stores';
-import { Container, CenterContainer } from './styled';
+import { Container } from './styled';
 import { observer } from 'mobx-react';
+import Table from './components/Table';
 
 const Quotes: React.FC = () => {
-  const { getExchangeData, exchangeDataArray, exchangeData } = ExchangeStore;
-
-  useEffect(() => {
-    getExchangeData();
-  }, []);
+  const { exchangeDataArray, exchangeData } = ExchangeStore;
 
   if (!exchangeDataArray.length && exchangeData.isLoading) {
     return (
-      <CenterContainer>
-        <ActivityIndicator />
-      </CenterContainer>
+      <Container>
+        <ActivityIndicator size={'large'} />
+      </Container>
     );
   }
 
   return (
     <Container>
-      <Text>{`${exchangeDataArray.length}${exchangeData?.data?.[0]?.id}`}</Text>
+      <Table />
     </Container>
   );
 };

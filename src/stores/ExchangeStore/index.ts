@@ -2,16 +2,20 @@ import { makeAutoObservable } from 'mobx';
 import LoadingStateModel from '../../models/LoadingStateModel';
 import { ExchangeService, TExchangeData } from '../../services/ExchangeService';
 import { AxiosError } from 'axios';
+import { TExchangeItem } from './types';
 
 class ExchangeStoreClass {
   public exchangeData = new LoadingStateModel<TExchangeData>();
 
   public get exchangeDataArray() {
     return this.exchangeData.data
-      ? Object.entries(this.exchangeData.data).map((exchangeItem) => ({
-        name: exchangeItem[0],
-        ...exchangeItem[1],
-      }))
+      ? Object.entries(this.exchangeData.data).map(
+        (exchangeItem) =>
+          ({
+            name: exchangeItem[0],
+            ...exchangeItem[1],
+          }) as TExchangeItem,
+      )
       : [];
   }
 
@@ -36,7 +40,7 @@ class ExchangeStoreClass {
         }
       }
     } finally {
-      this.exchangeData.setLoading(false);
+      this.exchangeData.setLoading(true);
     }
   };
 
@@ -46,3 +50,4 @@ class ExchangeStoreClass {
 }
 
 export default ExchangeStoreClass;
+export * from './types';
