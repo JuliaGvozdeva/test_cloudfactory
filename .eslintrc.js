@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	'env': {
 		'node': true,
 		'es2021': true
@@ -6,10 +6,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
 		'plugin:@typescript-eslint/recommended',
-		'plugin:@typescript-eslint/eslint-recommended',
-		'plugin:@typescript-eslint/recommended-requiring-type-checking',
 	],
 	'overrides': [
 		{
@@ -32,7 +29,6 @@ module.exports = {
 	},
 	'plugins': [
 		'@typescript-eslint',
-		'react-hooks',
 		'react',
 		'prettier'
 	],
@@ -46,7 +42,8 @@ module.exports = {
 			'unix'
 		],
 		'quotes': [
-			'error'
+			'error',
+			'single',
 		],
 		'semi': [
 			'error',
