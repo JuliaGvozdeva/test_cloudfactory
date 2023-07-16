@@ -22,7 +22,7 @@ export const Container = styled.View`
 `;
 
 export const Placeholder = styled.Text<TColor>`
-  color: ${({ color }) => color ?? 'black'};
+  color: ${({ color }) => color ?? '#0d1b2a'};
 `;
 
 export const ErrorContainer = styled.View`
@@ -33,4 +33,5 @@ export const ErrorContainer = styled.View`
   border-top-width: 2px;
   border-left-width: 2px;
   border-right-width: 2px;
+  border-color: #0d1b2a;
 `;

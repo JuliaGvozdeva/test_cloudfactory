@@ -1,7 +1,8 @@
 import React from 'react';
 import { TExchangeItem } from 'stores/ExchangeStore';
-import { Container, Cell, CellText } from './styled';
+import { Container } from './styled';
 import { roundValue } from './utils';
+import Cell from './components/Cell';
 
 type TRow = {
   item: TExchangeItem;
@@ -11,18 +12,10 @@ type TRow = {
 
 const Row: React.FC<TRow> = ({ item, isFirstRow, isLastRow }) => (
   <Container isFirstRow={isFirstRow} isLastRow={isLastRow}>
-    <Cell first={true}>
-      <CellText>{item.name}</CellText>
-    </Cell>
-    <Cell>
-      <CellText>{roundValue(item.last)}</CellText>
-    </Cell>
-    <Cell>
-      <CellText>{roundValue(item.highestBid)}</CellText>
-    </Cell>
-    <Cell>
-      <CellText>{roundValue(item.percentChange)}</CellText>
-    </Cell>
+    <Cell key={`${item.id}_name`} first={true} value={item.name} />
+    <Cell key={`${item.id}_last`} value={roundValue(item.last)} />
+    <Cell key={`${item.id}_highestBid`} value={roundValue(item.highestBid)} />
+    <Cell key={`${item.id}_percentChange`} value={roundValue(item.percentChange)} />
   </Container>
 );
 
