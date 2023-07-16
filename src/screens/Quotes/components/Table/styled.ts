@@ -1,6 +1,6 @@
 import { FlatList } from 'react-native';
-import { TExchangeItem } from 'stores/ExchangeStore';
 import styled from 'styled-components/native';
+import { TExchangeItem } from '../../../../stores/ExchangeStore';
 
 type TColor = {
   color?: string;

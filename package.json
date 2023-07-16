@@ -9,8 +9,7 @@
     "web": "expo start --web",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --check ./src",
-    "typecheck": "tsc -p . --noEmit && :",
-    "prepare": "husky install"
+    "typecheck": "tsc -p . --noEmit && :"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.8",
@@ -40,18 +39,8 @@
     "eslint": "^8.45.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   },
-  "private": true,
-  "lint-staged": {
-    ".src/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "yarn typecheck",
-      "git add"
-    ]
-  }
+  "private": true
 }

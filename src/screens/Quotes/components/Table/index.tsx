@@ -2,10 +2,10 @@ import React, { useCallback } from 'react';
 import { ListRenderItem } from 'react-native';
 import { ExchangeStore } from '../../../../stores';
 import Row from './components/Row';
-import { TExchangeItem } from 'stores/ExchangeStore';
 import { Container, ErrorContainer, FlatListComponent, Placeholder } from './styled';
 import { observer } from 'mobx-react';
 import { useFocusEffect } from '@react-navigation/native';
+import { TExchangeItem } from '../../../../stores/ExchangeStore';
 
 const Table: React.FC = () => {
   const { getExchangeData, exchangeDataArray, exchangeData } = ExchangeStore;

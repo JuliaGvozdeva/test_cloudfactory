@@ -1,8 +1,8 @@
 import React from 'react';
-import { TExchangeItem } from 'stores/ExchangeStore';
 import { Container } from './styled';
 import { roundValue } from './utils';
 import Cell from './components/Cell';
+import { TExchangeItem } from '../../../../../../stores/ExchangeStore';
 
 type TRow = {
   item: TExchangeItem;
