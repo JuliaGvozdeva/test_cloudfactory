@@ -40,7 +40,7 @@ class ExchangeStoreClass {
         }
       }
     } finally {
-      this.exchangeData.setLoading(true);
+      this.exchangeData.setLoading(false);
     }
   };
 
